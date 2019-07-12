@@ -11,6 +11,7 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { SectionHealthComponent } from './sections/section-health/section-health.component';
 import { SectionOrdersComponent } from './sections/section-orders/section-orders.component';
 import { SectionSalesComponent } from './sections/section-sales/section-sales.component';
+import { ServerComponent } from './server/server.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SectionSalesComponent } from './sections/section-sales/section-sales.co
     PieChartComponent,
     SectionHealthComponent,
     SectionOrdersComponent,
-    SectionSalesComponent
+    SectionSalesComponent,
+    ServerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, ChartsModule],
   providers: [],
