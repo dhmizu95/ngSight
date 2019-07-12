@@ -5,24 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { SectionHealthComponent } from './sections/SectionHealth/SectionHealth.component';
-import { SectionOrdersComponent } from './sections/SectionOrders/SectionOrders.component';
-import { SectionSalesComponent } from './sections/SectionSales/SectionSales.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { SectionHealthComponent } from './sections/section-health/section-health.component';
+import { SectionOrdersComponent } from './sections/section-orders/section-orders.component';
+import { SectionSalesComponent } from './sections/section-sales/section-sales.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    SectionSalesComponent,
-    SectionOrdersComponent,
-    SectionHealthComponent,
     LineChartComponent,
     BarChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    SectionHealthComponent,
+    SectionOrdersComponent,
+    SectionSalesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, ChartsModule],
   providers: [],

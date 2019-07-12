@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-SectionHealth',
-  templateUrl: './SectionHealth.component.html',
-  styleUrls: ['./SectionHealth.component.css']
+  selector: 'app-section-health',
+  templateUrl: './section-health.component.html',
+  styleUrls: ['./section-health.component.css']
 })
 export class SectionHealthComponent implements OnInit {
 
