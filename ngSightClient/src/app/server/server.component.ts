@@ -8,8 +8,29 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ServerComponent implements OnInit {
   @Input() serverInput: Server;
+  color: string;
+  buttonText: string;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getServerAction(this.serverInput.isOnline);
+  }
+
+  getServerAction(isOnline: boolean) {
+    if (isOnline) {
+      this.serverInput.isOnline = true;
+      this.color = '#66bb6a';
+      this.buttonText = 'Shut Down';
+    } else {
+      this.serverInput.isOnline = false;
+      this.color = '#ff6b6b';
+      this.buttonText = 'Start';
+    }
+  }
+
+  toggleStatus(onlineStatus: boolean) {
+    console.log('toggled!');
+    this.getServerAction(!onlineStatus);
+  }
 }
