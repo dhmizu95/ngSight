@@ -75,7 +75,8 @@ namespace ngSightAPI.Helpers
 
         public static string MakeCustomerEmail(string customerName)
         {
-            return $"contact@{customerName.ToLower()}.com";
+            var customer = customerName.Replace(" ", String.Empty);
+            return $"contact@{customer.ToLower()}.com";
         }
 
         public static string GetRandomState()
