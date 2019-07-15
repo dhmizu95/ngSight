@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ngSightAPI.Helpers;
 using ngSightAPI.Models;
 
 namespace ngSightAPI
@@ -28,11 +29,12 @@ namespace ngSightAPI
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<ApiContext>(opt =>
                     opt.UseNpgsql((Configuration.GetConnectionString("DefaultConnection"))));
+
+            services.AddTransient<DataSeed>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app,
-            IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DataSeed seed)
         {
             if (env.IsDevelopment())
             {
@@ -44,7 +46,11 @@ namespace ngSightAPI
                 app.UseHsts();
             }
 
+
+
             app.UseHttpsRedirection();
+
+            seed.SeedData(20, 1000);
             app.UseMvc();
         }
     }
