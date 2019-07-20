@@ -69,7 +69,7 @@ namespace ngSightAPI.Controllers
                 .Include(o => o.Customer)
                 .ToList();
 
-            var groupedResult = orders.GroupBy(o => o.Customer.State)
+            var groupedResult = orders.GroupBy(o => o.Customer.Id)
                 .ToList()
                 .Select(group => new
                 {
