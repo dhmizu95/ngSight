@@ -19,7 +19,7 @@ namespace ngSightAPI.Controllers
         }
 
         // GET api/orders
-        [HttpGet]
+        [HttpGet("{pageIndex}/{pageSize}")]
         public IActionResult Get(int pageIndex, int pageSize)
         {
             var data = _context.Orders

@@ -18,7 +18,7 @@ namespace ngSightAPI.Helpers
         {
             if (!_context.Customers.Any())
             {
-                SeedCustomer(nCustomers);
+                SeedCustomers(nCustomers);
                 _context.SaveChanges();
             }
 
@@ -57,7 +57,7 @@ namespace ngSightAPI.Helpers
             return customers;
         }
 
-        private void SeedCustomer(int nCustomers)
+        private void SeedCustomers(int nCustomers)
         {
             var customers = BuildCustomerList(nCustomers);
 
@@ -74,14 +74,14 @@ namespace ngSightAPI.Helpers
 
             for (var i = 1; i <= nOrders; i++)
             {
-                var randomCustomerId = random.Next(_context.Customers.Count());
+                var randomCustomerId = random.Next(1, _context.Customers.Count());
                 var placed = SeedHelper.GetRandomOrderPlaced();
                 var completed = SeedHelper.GetRandomOrderCompleted(placed);
 
                 orders.Add(new Order
                 {
                     Id = i,
-                    Customer = _context.Customers.FirstOrDefault(c => c.Id == randomCustomerId),
+                    Customer = _context.Customers.First(c => c.Id == randomCustomerId),
                     Total = SeedHelper.GetRandomTotal(),
                     Placed = placed,
                     Completed = completed

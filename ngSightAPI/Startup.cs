@@ -27,9 +27,8 @@ namespace ngSightAPI
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddEntityFrameworkNpgsql()
-                .AddDbContext<ApiContext>(opt =>
-                    opt.UseNpgsql((Configuration.GetConnectionString("DefaultConnection"))));
+            services.AddDbContext<ApiContext>(opt =>
+                    opt.UseMySql((Configuration.GetConnectionString("DefaultConnection"))));
 
             services.AddTransient<DataSeed>();
         }

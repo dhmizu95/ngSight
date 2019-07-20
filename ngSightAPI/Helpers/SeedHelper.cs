@@ -87,7 +87,7 @@ namespace ngSightAPI.Helpers
 
         public static decimal GetRandomTotal()
         {
-            return Random.Next(100, 5000);
+            return Random.Next(25, 1000);
         }
 
 
@@ -97,7 +97,7 @@ namespace ngSightAPI.Helpers
             var start = end.AddDays(-90);
 
             TimeSpan possibleSpan = end - start;
-            TimeSpan newTimeSpan = new TimeSpan(0, Random.Next(0, possibleSpan.Minutes), 0);
+            TimeSpan newTimeSpan = new TimeSpan(0, Random.Next(0, (int)possibleSpan.TotalMinutes), 0);
 
             return start + newTimeSpan;
         }
@@ -113,7 +113,7 @@ namespace ngSightAPI.Helpers
                 return null;
             }
 
-            return orderPlaced.AddDays(Random.Next(0, 7));
+            return orderPlaced.AddHours(Random.Next(10, 90));
         }
     }
 }
